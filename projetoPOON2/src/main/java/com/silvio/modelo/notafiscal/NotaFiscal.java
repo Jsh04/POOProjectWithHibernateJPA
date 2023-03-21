@@ -35,11 +35,11 @@ public class NotaFiscal {
 	@JoinColumn(name = "id")
 	private Cliente cliente;
 	
-	@ManyToOne(fetch = FetchType.LAZY)
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "matricula")
 	private Funcionario funcionario;
 	
-	@OneToMany(mappedBy = "nf", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "nf", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	private List<ItensProduto> list = new ArrayList<>();
 	
 	public NotaFiscal() {
@@ -99,9 +99,8 @@ public class NotaFiscal {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-
 		sb
-		.append("N�mero: ")
+		.append("Número: ")
 		.append(this.numero)
 		.append("\n")
 		.append("Data: ")

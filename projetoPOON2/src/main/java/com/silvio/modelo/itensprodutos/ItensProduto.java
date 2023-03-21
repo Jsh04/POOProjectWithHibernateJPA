@@ -9,15 +9,14 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Inheritance;
-import jakarta.persistence.InheritanceType;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import lombok.NoArgsConstructor;
 
 
-
+@NoArgsConstructor
 @Entity
 @Table(name="Itens_Produto")
 public class ItensProduto {
@@ -37,6 +36,8 @@ public class ItensProduto {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "numero")
 	private NotaFiscal nf;
+
+
 
 	public ItensProduto(int qtd, Produto produto, NotaFiscal nf) {
 		this.qtd = qtd;

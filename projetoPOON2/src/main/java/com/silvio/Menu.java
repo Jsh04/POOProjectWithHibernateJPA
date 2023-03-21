@@ -367,7 +367,9 @@ public class Menu implements CommandLineRunner {
 		int opcao = sc.nextInt();
 		switch (opcao) {
 		case 1:
-			notaFiscalService.ListarNotaFiscal();
+			System.out.println("Qual página você quer vizualizar?");
+			int pagina = sc.nextInt();
+			notaFiscalService.ListarNotaFiscal(pagina);
 		break;
 		case 2:
 			System.out.println("Digite o n�mero da Nota Fiscal que quer deletar: ");

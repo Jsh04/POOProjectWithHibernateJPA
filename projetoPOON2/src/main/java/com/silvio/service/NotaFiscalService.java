@@ -24,14 +24,15 @@ public class NotaFiscalService {
 		notaFiscalRepository.save(nf);
 	}
 	
-	public void ListarNotaFiscal() {
-		List<NotaFiscal> notas = notaFiscalRepository.findAll();
+	public void ListarNotaFiscal(Integer pagina) {
+		Pageable paginacao = PageRequest.of(pagina, 10, Sort.by("numero"));
+		Page<NotaFiscal> notas = notaFiscalRepository.findAll(paginacao);
 		notas.forEach(System.out::println);
 	}
 	
 	public void DeletarNotaFiscal(int numero) {
 		notaFiscalRepository.deleteById(numero);
 	}
-	
-	
+
+
 }
